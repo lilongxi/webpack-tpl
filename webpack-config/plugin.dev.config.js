@@ -1,9 +1,26 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+//const HappyPack = require('happypack');
+//const os = require('os');
 const Exports = require('../webpack-config/path.config.js');
+//const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 module.exports = [
+	//happypack
+//	new HappyPack({
+//		id: 'js',
+//		threads: 4,
+//      loaders: [
+//      		{
+//		      loader: 'babel-loader',
+//		      options: {
+//		        presets:['react', 'es2015', 'stage-0'],
+//		        plugins: ['react-html-attrs', 'babel-plugin-transform-decorators-legacy'],
+//		      }
+//		    }
+//      ]
+//	}),
 	new webpack.DllReferencePlugin({
 		context: __dirname,
 		manifest: require('../manifest.json')
@@ -16,6 +33,14 @@ module.exports = [
 	new webpack.HotModuleReplacementPlugin(),
 	new webpack.optimize.MinChunkSizePlugin({
 		minChunkSize: 10000
+	}),
+	/* 全局shimming */
+	new webpack.ProvidePlugin({
+		$: 'jquery',
+  		jQuery: 'jquery',
+  		'window.jQuery': 'jquery',
+  		React: 'react',
+  		ReactDOM: 'react-dom',
 	}),
 	new CopyWebpackPlugin([{
 		from: Exports.Static,

@@ -7,6 +7,7 @@ module.exports = {
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				include:Exports.Entry,
+//				loader: 'happypack/loader?id=js'
 				loader:'babel-loader', 
 				query: {
 					cacheDirectory:true,

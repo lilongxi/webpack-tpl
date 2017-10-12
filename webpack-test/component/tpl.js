@@ -1,7 +1,7 @@
-import React from 'react';
+//import React from 'react';
 import Index from 'stylus/index.css';
-
-import $ from 'jquery';
+//import $ from 'jquery';
+const env = process.env.NODE_ENV;
 
 class Tpl extends React.Component{
 	componentWillMount(){

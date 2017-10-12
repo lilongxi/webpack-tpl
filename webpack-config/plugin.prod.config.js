@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Exports = require('../webpack-config/path.config.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJSPlugin = require('webpack-parallel-uglify-plugin');
 
 module.exports = [
 	new webpack.BannerPlugin("Copyright by lilongxi@github.com."),
@@ -19,16 +20,32 @@ module.exports = [
 	}),
 	// 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
     	new webpack.optimize.OccurrenceOrderPlugin(),
-	new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        },
-        minimize: true
-    	}),
+    	new webpack.ProvidePlugin({
+		$: 'jquery',
+  		jQuery: 'jquery',
+  		'window.jQuery': 'jquery',
+  		React: 'react',
+  		ReactDOM: 'react-dom',
+	}),
 //  	new webpack.optimize.CommonsChunkPlugin({
 //      name: 'vendor',
 //      filename: 'js/[name].[chunkhash:8].js'
 //  }),
+	//多线程压缩
+	new UglifyJSPlugin({
+		test: /\.(js|jsx)$/,
+		exclude: /node_modules/,
+		include:Exports.Entry,
+		workerCount: 2,
+	    uglifyJS: {
+	        compress: {
+	            warnings: false,
+	            drop_debugger: true,
+	            drop_console: true
+	        },
+	        comments: false,
+	    }
+	}),
 	new CopyWebpackPlugin([{
 		from: Exports.Static,
 		ignore: ['*.ico']

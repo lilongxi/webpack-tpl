@@ -15,6 +15,7 @@
 /******/ 		script.type = "text/javascript";
 /******/ 		script.charset = "utf-8";
 /******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + hotCurrentHash + ".hot-update.js";
+/******/ 		;
 /******/ 		head.appendChild(script);
 /******/ 	}
 /******/ 	
@@ -60,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "792ad626af7643182607"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4e2f5a62a7b9e87c85e2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1079,7 +1080,7 @@ exports = module.exports = __webpack_require__(14)(undefined);
 
 
 // module
-exports.push([module.i, ".index__title__1M3A_r6e{color:#000}.index__head__24g6AVdG{font-size:33px;color:#000}", ""]);
+exports.push([module.i, ".index__title__1M3A_r6e{color:#000}.index__head__24g6AVdG{width:auto;font-size:33px;color:#000;border:1px solid #000}", ""]);
 
 // exports
 exports.locals = {

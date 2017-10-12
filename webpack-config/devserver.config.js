@@ -14,5 +14,9 @@ module.exports = {
 //          changeOrigin: true,
 //			secure: false  
 //      }  
-//  }
+//  },
+	watchOptions: {
+	    aggregateTimeout: 300,
+	    poll: 1000
+	},
 }

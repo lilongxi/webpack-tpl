@@ -6,6 +6,7 @@ module.exports = {
 	alias: {
 		//css
 		stylus: Exports.Style,
+		//tpl
 		template: Exports.Template
 	}
 }
