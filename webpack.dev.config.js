@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const Exports = require('./webpack-config/path.config.js');
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const dev = {
 	context:__dirname,
 	//配置生成Source Maps，选择合适的选项

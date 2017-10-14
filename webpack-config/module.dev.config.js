@@ -2,6 +2,17 @@ const Exports = require('./path.config.js');
 
 module.exports = {
 	rules:[
+//			{
+//		      test: /\.js$/,
+//		      enforce: 'pre',
+//		      loader: 'eslint-loader',
+//		      exclude: /node_modules/,
+//			  include:Exports.Entry,
+//		      options: {
+//		        emitWarning: true,
+//		        fix: true,
+//		      }
+//		    },
 			//js/jsx
 			{
 				test: /\.(js|jsx)$/,
@@ -21,7 +32,15 @@ module.exports = {
 				include:Exports.Entry,
 				use: [
 					{loader: 'style-loader'},
-					{loader: 'css-loader?modules&importLoaders=1&minimize=true&limit=5000&localIdentName=[name]__[local]__[hash:base64:8]'},
+					{loader: 'css-loader',
+					 options:{
+					  	  modules: true,
+					  	  importLoaders: 1,
+					  	  minimize: true,
+					  	  limit: 5000,
+					  	  localIdentName: '[name]_[local]_[hash:base64:8]'
+					   }
+					},
 					{loader: 'postcss-loader',
 					 options: {    
 				           plugins: require('./postcss.config.js')
@@ -35,7 +54,15 @@ module.exports = {
 				include:Exports.Entry,
 			    use:[
 			 		{loader: 'style-loader'},
-			 		{loader: 'css-loader?modules&importLoaders=1&minimize=true&limit=5000&localIdentName=[name]__[local]__[hash:base64:8]'},		
+			 		{loader: 'css-loader',
+					 options:{
+					  	  modules: true,
+					  	  importLoaders: 1,
+					  	  minimize: true,
+					  	  limit: 5000,
+					  	  localIdentName: '[name]_[local]_[hash:base64:8]'
+					   }
+					},		
 					{loader: 'less-loader'}
 			 	]
 			},
@@ -45,7 +72,15 @@ module.exports = {
 				include:Exports.Entry,
 				use:[
 			 		{loader: 'style-loader'},
-			 		{loader: 'css-loader?modules&importLoaders=1&minimize=true&limit=5000&localIdentName=[name]__[local]__[hash:base64:8]'},		
+			 		{loader: 'css-loader',
+					 options:{
+					  	  modules: true,
+					  	  importLoaders: 1,
+					  	  minimize: true,
+					  	  limit: 5000,
+					  	  localIdentName: '[name]_[local]_[hash:base64:8]'
+					   }
+					},		
 					{loader: 'sass-loader'}
 			 	]
 			},
@@ -54,7 +89,7 @@ module.exports = {
 				exclude: /node_modules/,
 				include:Exports.Entry,
 				use: [
-					{loader:'url-loader?limit=5000&name=img/[name].[ext]'}
+					{loader: 'url-loader',options:{limit: 5000,name: 'img/[name].[ext]'}}
 				]
 			},
 			{
@@ -62,7 +97,7 @@ module.exports = {
 				exclude: /node_modules/,
 				include:Exports.Entry,
 				use: [
-					{loader:'url-loader?limit=500&name=fonts/[name].[ext]'}
+					{loader: 'url-loader', options:{limit: 5000,name: 'fonts/[name].[ext]'}}
 				]
 			},
 			//xml,json

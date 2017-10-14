@@ -1,9 +1,9 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Exports = require('../webpack-config/path.config.js');
 //const HappyPack = require('happypack');
 //const os = require('os');
-const Exports = require('../webpack-config/path.config.js');
 //const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 module.exports = [
@@ -22,7 +22,7 @@ module.exports = [
 //      ]
 //	}),
 	new webpack.DllReferencePlugin({
-		context: __dirname,
+		context: Exports.Dll,
 		manifest: require('../manifest.json')
 	}),
 	new webpack.DefinePlugin({
@@ -39,8 +39,11 @@ module.exports = [
 		$: 'jquery',
   		jQuery: 'jquery',
   		'window.jQuery': 'jquery',
-  		React: 'react',
-  		ReactDOM: 'react-dom',
+		React: 'react',
+		ReactDOM: 'react-dom',
+		Redux: 'redux',
+		ReactRedux: 'react-redux',
+		ReactRouter: 'react-router'
 	}),
 	new CopyWebpackPlugin([{
 		from: Exports.Static,
@@ -61,5 +64,4 @@ module.exports = [
 			removeAttributeQuotes: true
 		}
 	}),
-
 ]

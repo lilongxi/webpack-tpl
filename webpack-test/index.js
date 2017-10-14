@@ -1,9 +1,41 @@
-//var React = require('react');
-//var ReactDOM = require('react-dom');
+//import React from 'react';
+//import ReactDOM from 'react-dom';
+//import { Provider } from 'react-redux';
+//import { createStore, combineReducers, applyMiddleware } from 'redux';
+import Tpl from 'component/tpl.js';
+const {Provider} = ReactRedux;
+const {createStore, combineReducers, applyMiddleware} = Redux;
 
-import Tpl from 'template/tpl.js';
+// test reduce
+const todos = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return [
+        ...state,
+        action.text
+      ];
+    default:
+      return state;
+  }
+};
 
-ReactDOM.render(
-	<Tpl />,
-	document.getElementById('root')
-)
+const store = createStore(
+  combineReducers({ todos }),
+  applyMiddleware()
+);
+
+store.dispatch({ type: 'ADD_TODO', text: 100 });
+
+
+const render = (() => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <Tpl />
+    </Provider>,
+    document.getElementById('root')
+  );
+})();
+
+store.subscribe(() => {
+  render;
+});

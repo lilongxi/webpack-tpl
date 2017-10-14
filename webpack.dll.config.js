@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const BabiliWebpackPlugin = require('babili-webpack-plugin');
 const Exports = require('./webpack-config/path.config.js');
 const pkg = require('./package.json');
 
@@ -11,11 +12,35 @@ const dll = {
     entry:{
         "lib": Object.keys(pkg.dependencies)
     },
+    module: {
+	    rules:[
+		    {
+		      test: /\.css$/,
+		      use:[
+		      	{loader: 'style-loader'},
+				{loader: 'css-loader'},
+				{loader: 'postcss-loader', 
+					options: {
+			           plugins: require('./webpack-config/postcss.config.js')
+			        }
+				}
+		      ]
+		    },
+		    {
+		      test: /\.less$/,
+		      use:[
+		      	{loader: 'style-loader'},
+				{loader: 'css-loader'},
+				{loader: 'less-loader'}
+		      ]
+		    }
+	    ]
+	  },
     plugins: [
         new webpack.DllPlugin({
             path: 'manifest.json',
             name: '[name]',
-            context: __dirname,
+            context: Exports.Dll,
         }),
         new webpack.optimize.UglifyJsPlugin({
            	compress: {
@@ -27,6 +52,7 @@ const dll = {
 	        minimize: true,
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
+        new BabiliWebpackPlugin(),
         new webpack.BannerPlugin("Copyright by lilongxi@github.com."),
     ],
 }

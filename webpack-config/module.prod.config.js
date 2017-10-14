@@ -23,7 +23,15 @@ module.exports = {
 					 fallback: 'style-loader',
 					//在css文件中指定引入：importLoaders=1
 					 use:[
-					 	{loader: 'css-loader?modules&importLoaders=1&minimize=true&limit=5000&localIdentName=[name]__[local]__[hash:base64:8]'},		
+					 	{loader: 'css-loader',
+						 options:{
+						  	  modules: true,
+						  	  importLoaders: 1,
+						  	  minimize: true,
+						  	  limit: 5000,
+						  	  localIdentName: '[name]_[local]_[hash:base64:8]'
+						   }
+						},		
 						{
 							loader: 'postcss-loader',
 							options: {    
@@ -40,7 +48,15 @@ module.exports = {
 				use:ExtractTextPlugin.extract({
 					 fallback: 'style-loader',
 					 use:[
-					 	{loader: 'css-loader?modules&importLoaders=1&minimize=true&limit=5000&localIdentName=[name]__[local]__[hash:base64:8]'},		
+					 	{loader: 'css-loader',
+						 options:{
+						  	  modules: true,
+						  	  importLoaders: 1,
+						  	  minimize: true,
+						  	  limit: 5000,
+						  	  localIdentName: '[name]_[local]_[hash:base64:8]'
+						   }
+						},		
 						{loader: 'less-loader'}
 					 ]
 				})
@@ -52,7 +68,15 @@ module.exports = {
 				use:ExtractTextPlugin.extract({
 					 fallback: 'style-loader',
 					 use:[
-					 	{loader: 'css-loader?modules&importLoaders=1&minimize=true&limit=5000&localIdentName=[name]__[local]__[hash:base64:8]'},		
+					 	{loader: 'css-loader',
+						 options:{
+						  	  modules: true,
+						  	  importLoaders: 1,
+						  	  minimize: true,
+						  	  limit: 5000,
+						  	  localIdentName: '[name]_[local]_[hash:base64:8]'
+						   }
+						},		
 						{loader: 'sass-loader'}
 					 ]
 				})
@@ -62,7 +86,7 @@ module.exports = {
 				exclude: /node_modules/,
 				include:Exports.Entry,
 				use: [
-					{loader:'url-loader?limit=5000&name=img/[name].[ext]'}
+					{loader: 'url-loader',options:{limit: 5000,name: 'img/[name].[ext]'}}
 				]
 			},
 			{
@@ -70,7 +94,7 @@ module.exports = {
 				exclude: /node_modules/,
 				include:Exports.Entry,
 				use: [
-					{loader:'url-loader?limit=500&name=fonts/[name].[ext]'}
+					{loader: 'url-loader', options:{limit: 5000,name: 'fonts/[name].[ext]'}}
 				]
 			},
 			//xml,json

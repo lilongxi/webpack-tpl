@@ -19,4 +19,9 @@ module.exports = {
 	    aggregateTimeout: 300,
 	    poll: 1000
 	},
+	//抛出屏幕错误
+	overlay: {
+		errors: true,
+		warnings: true
+	}
 }

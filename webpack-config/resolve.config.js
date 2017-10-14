@@ -5,8 +5,8 @@ module.exports = {
 	//为常用模块配置别名,可使用$触发精确匹配
 	alias: {
 		//css
-		stylus: Exports.Style,
+		css: Exports.Style,
 		//tpl
-		template: Exports.Template
+		component: Exports.Template
 	}
 }

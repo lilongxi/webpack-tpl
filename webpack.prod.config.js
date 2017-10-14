@@ -6,10 +6,16 @@ const prod = {
 	context:__dirname,
 	//配置生成Source Maps，选择合适的选项
 	devtool : false,
+	//文件大小监控 btyes
+	performance: {
+		hints: 'warning',
+		maxEntrypointSize: 450000,
+		maxAssetSize: 450000
+	},
 	//配置入口文件
 	entry: {
 		'index': `${Exports.Entry}/index.js`,
-//		vendor: Object.keys(pkg.dependencies)
+//		vendor: ['react']
 	},
 	//配置输出文件
 	output: {
