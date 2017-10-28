@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const BabiliWebpackPlugin = require('babili-webpack-plugin');
 const Exports = require('./webpack-config/path.config.js');
 const pkg = require('./package.json');
 
@@ -52,7 +51,6 @@ const dll = {
 	        minimize: true,
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new BabiliWebpackPlugin(),
         new webpack.BannerPlugin("Copyright by lilongxi@github.com."),
     ],
 }

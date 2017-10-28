@@ -28,7 +28,7 @@ store.dispatch({ type: 'ADD_TODO', text: 100 });
 
 
 const render = (() => {
-  ReactDOM.render(
+  ReactDom.render(
     <Provider store={store}>
       <Tpl />
     </Provider>,

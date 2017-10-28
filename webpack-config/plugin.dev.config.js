@@ -2,6 +2,9 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Exports = require('../webpack-config/path.config.js');
+const pkg = require('../package.json');
+const upper = require('./to.config.js');
+
 //const HappyPack = require('happypack');
 //const os = require('os');
 //const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
@@ -35,16 +38,7 @@ module.exports = [
 		minChunkSize: 10000
 	}),
 	/* 全局shimming */
-	new webpack.ProvidePlugin({
-		$: 'jquery',
-  		jQuery: 'jquery',
-  		'window.jQuery': 'jquery',
-		React: 'react',
-		ReactDOM: 'react-dom',
-		Redux: 'redux',
-		ReactRedux: 'react-redux',
-		ReactRouter: 'react-router'
-	}),
+	new webpack.ProvidePlugin(upper(Object.keys(pkg.dependencies))),
 	new CopyWebpackPlugin([{
 		from: Exports.Static,
 		ignore: ['*.ico']

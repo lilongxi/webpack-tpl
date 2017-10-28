@@ -11,7 +11,7 @@ module.exports = {
 				include:Exports.Entry,
 				query: {
 					cacheDirectory:true,
-					presets:['react', 'es2015', 'stage-0'],
+					presets:['react', 'env', 'stage-0'],
 					plugins: ['react-html-attrs', 'babel-plugin-transform-decorators-legacy'],
 				}
 			},
@@ -86,7 +86,7 @@ module.exports = {
 				exclude: /node_modules/,
 				include:Exports.Entry,
 				use: [
-					{loader: 'url-loader',options:{limit: 5000,name: 'img/[name].[ext]'}}
+					{loader: 'file-loader',options:{limit: 5000,name: 'img/[name].[ext]'}}
 				]
 			},
 			{
@@ -94,7 +94,7 @@ module.exports = {
 				exclude: /node_modules/,
 				include:Exports.Entry,
 				use: [
-					{loader: 'url-loader', options:{limit: 5000,name: 'fonts/[name].[ext]'}}
+					{loader: 'file-loader', options:{limit: 5000,name: 'fonts/[name].[ext]'}}
 				]
 			},
 			//xml,json

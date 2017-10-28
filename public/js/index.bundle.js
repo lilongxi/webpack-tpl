@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "53104c1824bf1a91c488"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c803509f67921b0c1fdd"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -740,7 +740,7 @@ exports = module.exports = __webpack_require__(9)(undefined);
 
 
 // module
-exports.push([module.i, ".index_title_1M3A_r6e{color:#000}.index_head_24g6AVdG{width:auto;font-size:33px;color:#000;border:1px solid #000}", ""]);
+exports.push([module.i, ".index_title_1M3A_r6e{color:#000}.index_head_24g6AVdG{width:auto;font-size:33px;color:#000;border:1px solid #000;height:auto}", ""]);
 
 // exports
 exports.locals = {
@@ -765,7 +765,7 @@ module.exports = (__webpack_require__(0))(1);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(ReactRedux, Redux, ReactDOM, React) {
+/* WEBPACK VAR INJECTION */(function(ReactRedux, Redux, ReactDom, React) {
 
 var _tpl = __webpack_require__(7);
 
@@ -805,7 +805,7 @@ var store = createStore(combineReducers({ todos: todos }), applyMiddleware());
 store.dispatch({ type: 'ADD_TODO', text: 100 });
 
 var render = function () {
-  ReactDOM.render(React.createElement(
+  ReactDom.render(React.createElement(
     Provider,
     { store: store },
     React.createElement(_tpl2.default, null)

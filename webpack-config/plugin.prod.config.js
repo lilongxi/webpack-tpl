@@ -3,6 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Exports = require('../webpack-config/path.config.js');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const pkg = require('../package.json');
+const upper = require('./to.config.js');
+//消除未使用的css，减少css冗余
+const PurifyCSSPlugin = require("purifycss-webpack");
+const glob = require('glob');
 
 module.exports = [
 	new webpack.BannerPlugin("Copyright by lilongxi@github.com."),
@@ -19,16 +24,7 @@ module.exports = [
 	}),
 	// 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
     	new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.ProvidePlugin({
-		$: 'jquery',
-  		jQuery: 'jquery',
-  		'window.jQuery': 'jquery',
-  		React: 'react',
-  		ReactDOM: 'react-dom',
-  		Redux: 'redux',
-  		ReactRedux: 'react-redux',
-  		ReactRouter: 'react-router'
-	}),
+    new webpack.ProvidePlugin(upper(Object.keys(pkg.dependencies))),
 //  	new webpack.optimize.CommonsChunkPlugin({
 //      name: 'vendor',
 //      filename: 'js/[name].[chunkhash:8].js'
@@ -61,5 +57,9 @@ module.exports = [
 			removeAttributeQuotes: true
 		}
 	}),
+	new PurifyCSSPlugin({
+    		// Give paths to parse for rules. These should be absolute!
+    		paths: glob.sync(Exports.Root),
+    }),
 	new ExtractTextPlugin('css/[name].[chunkhash:8].css'),
 ]
