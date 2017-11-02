@@ -102,11 +102,11 @@ module.exports = {
 			},
 			//xml,json
 			{
-		       test: /\.(csv|tsv)$/,
+		       test: /\.json$/,
 		       exclude: /node_modules/,
 		       include:Exports.Entry,
 		       use: [
-		           {loader: 'csv-loader'}
+		           {loader: 'json-loader'}
 		       ]
 		    },
 	        {

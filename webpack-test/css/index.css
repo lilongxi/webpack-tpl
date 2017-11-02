@@ -1,13 +1,21 @@
 
 $blue: #000;
 
+/*css4在root中声明变量*/
+
+:root{
+	--parimary-color:skyblue;
+}
+
 .title{
 	color: $blue;
 }
 .head{
-	width: auto;
-	font-size: 33px;
+	font-size: 20px;
+	size: auto;
 	color: $blue;
+	position: fixed 0 0 *; 
 	border: 1px solid $blue;
-	height: auto;
+	background-color: var(--parimary-color);
+	transform: scale(.8);
 }
