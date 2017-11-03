@@ -26,7 +26,7 @@ module.exports = [
 //	}),
 	new webpack.DllReferencePlugin({
 		context: Exports.Dll,
-		manifest: require('../manifest.json')
+		manifest: Exports.Manifest
 	}),
 	new webpack.DefinePlugin({
 		'process.env': {

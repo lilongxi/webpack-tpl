@@ -1,5 +1,7 @@
+const Exports = require('./path.config.js');
+
 module.exports = {
-	contentBase:'../public',
+	contentBase:Exports.Output,
 	open: true,
 	host: 'localhost',
 	port: process.env.PORT || 8080, // 默认8080

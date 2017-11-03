@@ -7,6 +7,7 @@ Exports.Build = path.resolve(Exports.Root, './build');
 Exports.Static = path.resolve(Exports.Root, './static');
 Exports.Entry = path.resolve(Exports.Root, './webpack-test');
 Exports.Dll = path.resolve(Exports.Root, './webpack-config');
+Exports.Manifest = path.resolve(Exports.Root, './manifest.json');
 
 //模块别名路径设置
 Exports.Style = path.resolve(Exports.Entry, './css');

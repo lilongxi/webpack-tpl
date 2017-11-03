@@ -13,7 +13,7 @@ module.exports = [
 	new webpack.BannerPlugin("Copyright by lilongxi@github.com."),
 	new webpack.DllReferencePlugin({
 		context: Exports.Dll,
-		manifest: require('../manifest.json')
+		manifest: Exports.Manifest
 	}),
 	//生产环境中，react将被压缩到最小
 	new webpack.DefinePlugin({
