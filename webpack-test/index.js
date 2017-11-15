@@ -15,6 +15,8 @@
 //	root
 //});
 
-import './diff';
+//import './diff';
+
+import './async/_index'
 
 

@@ -23,7 +23,11 @@ module.exports = {
 				query: {
 					cacheDirectory:true,
 					presets:['react', 'env', 'stage-0'],
-					plugins: ['react-html-attrs', 'transform-decorators-legacy', 'transform-do-expressions', 'transform-react-jsx'],
+					plugins: ['react-html-attrs', 
+					'transform-decorators-legacy', 
+					'transform-do-expressions', 
+					'transform-react-jsx',
+					'transform-runtime'],
 				}
 			},
 			{
