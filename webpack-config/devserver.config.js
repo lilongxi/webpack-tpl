@@ -3,7 +3,7 @@ const Exports = require('./path.config.js');
 module.exports = {
 	contentBase:Exports.Output,
 	open: true,
-	host: 'localhost',
+	host: '0.0.0.0',
 	port: process.env.PORT || 8080, // 默认8080
 	compress: true,
 	watchContentBase: false,
