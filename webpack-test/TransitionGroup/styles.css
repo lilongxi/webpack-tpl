@@ -1,0 +1,67 @@
+:global(.fade-enter){
+  opacity: 0.01;
+}
+
+:global(.fade-enter.fade-enter-active){
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+
+:global(.fade-exit){
+  opacity: 1;
+}
+
+:global(.fade-exit.fade-exit-active){
+  opacity: 0.01;
+  transition: opacity 800ms ease-in;
+}
+
+
+/**--- example styles ---**/
+.container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 200px;
+  margin: auto;
+  border-radius: 4px;
+}
+
+.todo-list > * {
+  margin: 5px 0;
+  padding: 5px 0;
+  border-bottom:  1px solid #ccc;
+}
+
+.container > button {
+  margin-top: 20px;
+}
+
+
+/*----enter-----*/
+:global(.defaulted){
+  transition: all .5 ease-in-out;
+  opacity: 1;
+  padding: 20px;
+  display: 'inline-block';
+  background-color: '#8787d8';
+}
+:global(.entering){
+	opacity: .5 ;
+	padding: 25px;
+	transform: translate3d(0, 200px, 0);
+}
+:global(.entered){
+	opacity: 1 ;
+	padding: 50 ;
+	transform: translate3d(200px, 200px, 0);
+}
+:global(.exiting){
+	opacity: .5 ;
+	padding: 50; 
+	transform: translate3d(200px, 0, 0);
+}
+:global(.exited){
+	 opacity: .1; 
+	 padding: 20px; 
+	 transform: translate3d(0, 0, 0);
+}

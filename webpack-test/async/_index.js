@@ -31,10 +31,10 @@ const showInfo = async() => {
 //		const frontend = await frontendPromise;
 
 		//promise.all
-//		const [reactjs, frontend] = await Promise.all([
-//			getData('reactjs'),
-//			getData('frontend')
-//		])
+		const [reactjs, frontend] = await Promise.all([
+			getData('reactjs'),
+			getData('frontend')
+		])
 
 		//循环处理await
 		const names = ['reactjs', 'frontend'];
@@ -42,17 +42,17 @@ const showInfo = async() => {
 //			const data = await getData(name);
 //			console.log(data)
 //		}
-		//
-		const promises = names.map(x => getData(x));
+
+//		const promises = names.map(x => getData(x));
+//		
+//		for (const promise of promises) {
+//			const data = await promise;
+//			console.log(data)
+//		}
 		
-		for (const promise of promises) {
-			const data = await promise;
-			console.log(data)
-		}
 		
-		
-//		console.log(reactjs);
-//		console.log(frontend);
+		console.log(reactjs);
+		console.log(frontend);
 		
 		console.timeEnd('showInfo');
 		
@@ -62,7 +62,7 @@ const showInfo = async() => {
 	
 }
 
-showInfo()
+showInfo();
 
 //promise.thenable
 /*
@@ -70,7 +70,7 @@ showInfo()
  */
 async function thenable(){
 //	const data = await 999;
-	await sleep(3000)
+	await sleep(3000);
 	const data = await Promise.resolve(999)
 	console.log(data)
 }

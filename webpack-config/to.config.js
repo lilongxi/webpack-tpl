@@ -1,6 +1,6 @@
 
 module.exports = function toFirstUpper(upper){
-	let o = {};
+	let o = {$: 'jquery', jQuery: 'jquery'};
 	function capitalize(string){
         var words =string.split("-");
         for(var i=0;i<words.length;i++)

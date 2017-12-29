@@ -5,16 +5,17 @@ module.exports = {
 	open: true,
 	host: '0.0.0.0',
 	port: process.env.PORT || 8080, // 默认8080
+//	disableHostCheck: true,
 	compress: true,
 	watchContentBase: false,
     historyApiFallback: true, //不跳转，在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
     inline: true, //实时刷新
     hot: true,  // 使用热加载插件 HotModuleReplacementPlugin
-//  proxy: {  
-//      '*': {  
-//          target: 'http://localhost:3000',  
+// 	proxy: {  
+//      '/music/api/getDiscList': {  
+//          target: 'http://ustbhuangyi.com',  
 //          changeOrigin: true,
-//			secure: false  
+//			secure: false
 //      }  
 //  },
 	watchOptions: {

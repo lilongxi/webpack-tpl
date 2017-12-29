@@ -1,0 +1,18 @@
+.scrollView {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	size:100%;
+	overflow: hidden;
+	
+	
+	& .containerUl {
+		
+		& li{
+			padding: 20px;
+			border-bottom: 1px solid #c2c2c2;
+			box-sizing: border-box;
+			color: #C2C2C2;
+		}
+	}
+}
