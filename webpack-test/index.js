@@ -1,18 +1,21 @@
-import {ThemeProvider} from 'styled-components';
+//import {ThemeProvider} from 'styled-components';
 import App from './redux/container.js';
-import Tpl from './component/tpl.js';
-import Animate from './animate';
-import StyleComponent from './style-component';
-import {store} from './redux/createStore';
-import Motion from './animate/demo';
-import TransitionGroup from './TransitionGroup/TransitionGroup';
-import TransitionGroupItem from './TransitionGroup/TransitionGroupItem';
-import TransitionGroupRouter from './TransitionGroupRouter/TransitionGroupRouter';
+import {store} from './react-actions/createStore';
+//import {store} from './redux/createStore';
+import ReactAction from './react-actions/app';
+import CreatLi from './scroll';
+//import Tpl from './component/tpl.js';
+//import Animate from './animate';
+//import StyleComponent from './style-component';
+//import Motion from './animate/demo';
+//import TransitionGroup from './TransitionGroup/TransitionGroup';
+//import TransitionGroupItem from './TransitionGroup/TransitionGroupItem';
+//import TransitionGroupRouter from './TransitionGroupRouter/TransitionGroupRouter';
 const {Provider} = ReactRedux;
 
-const theme = {
-	primary: 'tomato'
-}
+//const theme = {
+//	primary: 'tomato'
+//}
 
 //<ThemeProvider theme={theme}>
 //	<StyleComponent />
@@ -20,8 +23,8 @@ const theme = {
 
 const root = (() => {
 ReactDom.render(
-    <Provider store={store}>
-    		<TransitionGroupItem />
+    <Provider store = {store}>
+    		<ReactAction />
     </Provider>,
     document.getElementById('root')
 );
@@ -31,5 +34,5 @@ store.subscribe(() => {
 	root
 });
 
-//import './diff';
-//import './async/_index'
+//import './async/generator.js'
+

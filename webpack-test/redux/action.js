@@ -2,6 +2,31 @@ import {
 	REQUEST_POSTS, RECEIVE_POSTS, INVALIDATE_SUBREDDIT, SELECT_SUBREDDIT
 } from './actionCreators';
 
+import { createAction, createActions, combineActions } from 'redux-actions';
+
+//const increment = createAction('INCREMENT', {})
+
+//const actionCreators = createActions({
+//	INCREMENT: [
+//      (amount, posts = []) => ({ amount, posts }),
+//      amount => ({ key: 'value', amount })
+//    ],
+//	DECREMENT: amount => ({amount})
+//})
+//
+//const {increment, decrement} = createActions({
+//	INCREMENT: [
+//      (amount, posts = []) => ({ amount, posts }),
+//      amount => ({ key: 'value', amount })
+//    ],
+//	DECREMENT: amount => ({amount})
+//})
+//
+//const combine = combineActions(increment, decrement);
+
+//console.log(actionCreators.increment(1, [1,2,3]))
+//console.log(increment(1, [1,2,3]), selectSubreddit(1))
+
 //选择数据类型
 export function selectSubreddit(subreddit){
 	return {
