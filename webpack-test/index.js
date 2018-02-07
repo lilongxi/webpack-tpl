@@ -21,18 +21,21 @@ const {Provider} = ReactRedux;
 //	<StyleComponent />
 //</ThemeProvider>
 
-const root = (() => {
-ReactDom.render(
-    <Provider store = {store}>
-    		<ReactAction />
-    </Provider>,
-    document.getElementById('root')
-);
-})();
-
-store.subscribe(() => {
-	root
-});
+//const root = (() => {
+//ReactDom.render(
+//  <Provider store = {store}>
+//  		<ReactAction />
+//  </Provider>,
+//  document.getElementById('root')
+//);
+//})();
+//
+//store.subscribe(() => {
+//	root
+//});
 
 //import './async/generator.js'
 
+
+//real-redux
+import './real-redux'
